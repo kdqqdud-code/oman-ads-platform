@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS ads(id TEXT PRIMARY KEY,title TEXT,price REAL,city TEXT,cat TEXT DEFAULT 'أخرى',cond TEXT,descr TEXT,wa TEXT,status TEXT DEFAULT 'draft',created INT,updated INT);
+CREATE TABLE IF NOT EXISTS images(id TEXT PRIMARY KEY,ad_id TEXT,mime TEXT,data TEXT,pos INT DEFAULT 0);
+CREATE TABLE IF NOT EXISTS events(id INTEGER PRIMARY KEY AUTOINCREMENT,ad_id TEXT,type TEXT,src TEXT,ts INT);
+CREATE INDEX IF NOT EXISTS ev_ad ON events(ad_id,type);
+CREATE INDEX IF NOT EXISTS im_ad ON images(ad_id);
